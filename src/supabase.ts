@@ -1,8 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
 
 export const cloudMode = true;
-const url = import.meta.env.VITE_SUPABASE_URL;
-const key = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+// Public client configuration only; deployment environment values may override it.
+const url = import.meta.env.VITE_SUPABASE_URL?.trim() || 'https://auldwneywwfktztatwja.supabase.co';
+const key = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY?.trim() || 'sb_publishable_PdtrjOu_1gTr-ttTRHWb6A_jHRY2ymo';
 export const invitationLanding = typeof window !== 'undefined' &&
   new URLSearchParams(window.location.hash.slice(1)).get('type') === 'invite';
 export const configurationError = !url || !key
