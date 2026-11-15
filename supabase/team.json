@@ -1,0 +1,9 @@
+[
+  { "id": "manager", "name": "مدير الإدارة القانونية", "role": "مدير الإدارة القانونية", "email": "legal.manager@thabat.sa" },
+  { "id": "omar", "name": "عمر المرغلاني", "role": "مستشار قانوني", "email": "omar@thabat.sa" },
+  { "id": "dima", "name": "ديما", "role": "ضابط الاتصال", "email": "dima@thabat.sa" },
+  { "id": "layan", "name": "ليان", "role": "ضابط الاتصال", "email": "layan@thabat.sa" },
+  { "id": "othman", "name": "عثمان", "role": "محامٍ", "email": "othman@thabat.sa" },
+  { "id": "dhay", "name": "ضي", "role": "باحث قانوني", "email": "dhay@thabat.sa" },
+  { "id": "mohammed", "name": "محمد", "role": "متدرب", "email": "mohammed@thabat.sa" }
+]
