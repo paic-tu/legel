@@ -1,14 +1,19 @@
 import { readFile } from 'node:fs/promises';
 import { createClient } from '@supabase/supabase-js';
 
-const team = JSON.parse(await readFile(new URL('./team.json', import.meta.url), 'utf8'));
+const configuredTeam = JSON.parse(await readFile(new URL('./team.json', import.meta.url), 'utf8'));
+const targetEmail = process.argv.find(arg => arg.startsWith('--email='))?.slice('--email='.length).trim().toLowerCase();
+if (targetEmail !== undefined && !configuredTeam.some(member => member.email === targetEmail)) {
+  throw new Error('Requested email is not in the office account configuration.');
+}
+const team = targetEmail === undefined ? configuredTeam : configuredTeam.filter(member => member.email === targetEmail);
 const apply = process.argv.includes('--apply');
 const sharedPasswordMode = process.argv.includes('--shared-password');
 const expectedUrl = 'https://auldwneywwfktztatwja.supabase.co';
 
-if (new Set(team.map(member => member.email)).size !== team.length ||
-    new Set(team.map(member => member.id)).size !== team.length ||
-    team.some(member => !/^[a-z0-9][a-z0-9._+-]*@thabat\.sa$/.test(member.email))) {
+if (new Set(configuredTeam.map(member => member.email)).size !== configuredTeam.length ||
+    new Set(configuredTeam.map(member => member.id)).size !== configuredTeam.length ||
+    configuredTeam.some(member => !/^[a-z0-9][a-z0-9._+-]*@thabat\.sa$/.test(member.email))) {
   throw new Error('Invalid or duplicate office account configuration.');
 }
 console.table(team.map(({ id, name, role, email }) => ({ id, name, role, email })));

@@ -372,8 +372,8 @@ td { padding: 16px 12px; border-top: 1px solid var(--border); vertical-align: mi
 .staff-table td { padding-block: 11px; }
 .add-employee { padding: 20px; border-top: 1px solid var(--border); }
 .add-employee h3 { display: flex; gap: 6px; align-items: center; margin-block-end: 15px; }
-.add-employee > div { display: flex; gap: 10px; align-items: end; }
-.add-employee .field { flex: 1; }
+.add-employee > div { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; }
+.add-employee .field { flex: 1 1 160px; min-width: 0; }
 .add-employee > p { margin-block-start: 13px; }
 .deadline-table input { max-width: 85px; text-align: center; padding: 5px 10px; direction: ltr; }
 .deadline-table td { padding-block: 9px; }

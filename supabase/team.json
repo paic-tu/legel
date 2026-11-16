@@ -5,5 +5,7 @@
   { "id": "layan", "name": "ليان", "role": "ضابط الاتصال", "email": "layan@thabat.sa" },
   { "id": "othman", "name": "عثمان", "role": "محامٍ", "email": "othman@thabat.sa" },
   { "id": "dhay", "name": "ضي", "role": "باحث قانوني", "email": "dhay@thabat.sa" },
-  { "id": "mohammed", "name": "محمد", "role": "متدرب", "email": "mohammed@thabat.sa" }
+  { "id": "mohammed", "name": "محمد بناني", "role": "متدرب", "email": "mohammed@thabat.sa" },
+  { "id": "jawharah", "name": "الجوهرة", "role": "مستشار قانوني", "email": "jawharah@thabat.sa" },
+  { "id": "34e47ce4-b13d-45af-9a57-41f7df75aab2", "name": "أحمد", "role": "مدير الإدارة القانونية", "email": "ahmed@thabat.sa" }
 ]

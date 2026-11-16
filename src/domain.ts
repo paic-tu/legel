@@ -9,7 +9,8 @@ export type Stage = typeof STAGES[number];
 export const ROLE_CODES = ['مدير الإدارة القانونية', 'ضابط الاتصال', 'مستشار قانوني', 'محامٍ', 'باحث قانوني', 'متدرب'] as const;
 export type Role = typeof ROLE_CODES[number];
 export const ROLES: Role[] = [];
-export interface Employee { id: string; name: string; role: Role; archived?: boolean; authUserId?: string | null }
+export interface Employee { id: string; name: string; role: Role; archived?: boolean; authUserId?: string | null; email?: string | null }
+export interface EmployeeInput { id?: string; name: string; role: Role; email?: string; password?: string }
 export interface Audit { id: string; at: string; actor: string; action: string; old?: string; next?: string }
 export interface Matter {
   id: string; type: TypeCode; subject: string; source: string; party: string;

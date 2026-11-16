@@ -1,6 +1,6 @@
 import { configurationError, supabase } from './supabase';
 import { SupabaseRepository } from './supabaseRepository';
-import type { Employee, Matter, MatterDraft, Settings, Snapshot, Stage } from './domain';
+import type { Employee, EmployeeInput, Matter, MatterDraft, Settings, Snapshot, Stage } from './domain';
 
 export interface LegalRepository {
   load(): Promise<Snapshot>;
@@ -9,6 +9,7 @@ export interface LegalRepository {
   transition(actorId: string, id: string, stage: Stage): Promise<void>;
   note(actorId: string, id: string, text: string): Promise<void>;
   addEmployee(actorId: string, name: string, role: Employee['role'], email?: string): Promise<void>;
+  saveEmployee(actorId: string, employee: EmployeeInput): Promise<void>;
   bindAccount(actorId: string, employeeId: string, email: string): Promise<void>;
   removeEmployee(actorId: string, id: string): Promise<void>;
   settings(actorId: string, settings: Settings): Promise<void>;
