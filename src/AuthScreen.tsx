@@ -44,15 +44,15 @@ export function AuthScreen() {
     finally { setBusy(false); }
   };
   const pendingAccount = !!sessionUserId && !passwordRecovery;
-  return <main className="auth-page"><section className="auth-intro"><div className="auth-brand"><BrandLogo /><strong>مكتب متابعة الإدارة القانونية</strong></div><div><h1>مكتب متابعة<br />الإدارة القانونية</h1><p>الاستلام، التسجيل، التوجيه، التنفيذ، المراجعة، الإغلاق.</p></div></section>
-    <section className="auth-card"><div className="auth-icon"><LockKeyhole size={27} /></div><h2>{passwordRecovery ? 'تعيين كلمة مرور جديدة' : pendingAccount ? 'تهيئة الوصول إلى مكتب المتابعة' : reset ? 'استعادة كلمة المرور' : 'تسجيل الدخول'}</h2><p>{pendingAccount ? `تم تسجيل الدخول بالبريد ${sessionEmail}.` : 'استخدم حسابك المعتمد لدى الإدارة القانونية.'}</p>
+  return <main className="auth-page"><section className="auth-intro"><div className="auth-brand"><BrandLogo /><strong>قسم الإدارة القانونية</strong></div><div><h1>مركز<br />الإدارة القانونية</h1><p>الاستلام، التسجيل، التوجيه، التنفيذ، المراجعة، الإغلاق.</p></div></section>
+    <section className="auth-card"><div className="auth-icon"><LockKeyhole size={27} /></div><h2>{passwordRecovery ? 'تعيين كلمة مرور جديدة' : pendingAccount ? 'تهيئة الوصول إلى قسم الإدارة القانونية' : reset ? 'استعادة كلمة المرور' : 'تسجيل الدخول'}</h2><p>{pendingAccount ? `تم تسجيل الدخول بالبريد ${sessionEmail}.` : 'استخدم حسابك المعتمد لدى الإدارة القانونية.'}</p>
       {error && <div className="error-message" role="alert">{error}</div>}
       {pendingAccount ? <><div className="actions"><button className="primary" onClick={() => location.reload()}>إعادة تحميل البيانات</button><button className="secondary" onClick={() => void signOut()}><LogOut size={16} />تسجيل الخروج</button></div></> : <form onSubmit={submit}>
         {!passwordRecovery && <label className="field"><span><Mail size={14} />البريد الإلكتروني</span><input type="email" required autoComplete="username" dir="ltr" value={email} onChange={e => setEmail(e.target.value)} disabled={busy || !!configurationError} /></label>}
         {(!reset || passwordRecovery) && <label className="field"><span>كلمة المرور{passwordRecovery ? ' الجديدة' : ''}</span><input type="password" required minLength={passwordRecovery ? 8 : 1} autoComplete={passwordRecovery ? 'new-password' : 'current-password'} dir="ltr" value={password} onChange={e => setPassword(e.target.value)} disabled={busy || !!configurationError} /></label>}
         {passwordRecovery && <label className="field"><span>تأكيد كلمة المرور</span><input type="password" required minLength={8} autoComplete="new-password" dir="ltr" value={confirm} onChange={e => setConfirm(e.target.value)} disabled={busy} /></label>}
         {message && <p className={failed ? 'error-message' : 'info-banner'} role={failed ? 'alert' : 'status'}>{message}</p>}
-        <button className="primary auth-submit" type="submit" disabled={busy || !!configurationError}><LogIn size={17} />{busy ? 'جارٍ تنفيذ الطلب...' : passwordRecovery ? 'حفظ كلمة المرور' : reset ? 'إرسال رابط الاستعادة' : 'الدخول إلى مكتب المتابعة'}</button>
+        <button className="primary auth-submit" type="submit" disabled={busy || !!configurationError}><LogIn size={17} />{busy ? 'جارٍ تنفيذ الطلب...' : passwordRecovery ? 'حفظ كلمة المرور' : reset ? 'إرسال رابط الاستعادة' : 'الدخول إلى قسم الإدارة القانونية'}</button>
         {!passwordRecovery && <button className="text-button" type="button" disabled={busy} onClick={() => { setReset(!reset); setMessage(''); setPassword(''); }}><ArrowRight size={14} />{reset ? 'العودة إلى تسجيل الدخول' : 'نسيت كلمة المرور؟'}</button>}
       </form>}
     </section>

@@ -13,7 +13,7 @@ export function Dashboard({ matters, now }: { matters: Matter[]; now: string }) 
   const stages = STAGES.map((s, index) => ({ name: index === 4 ? 'مغلقة هذا الشهر' : s, count: index === 4 ? stats.done.length : stats.open.filter(m => m.stage === s).length }));
   const largest = stats.open.filter(m => m.type === 'EXE').sort((a, b) => b.amount - a.amount).slice(0, 3);
   return <>
-    <div className="page-heading"><div><div className="eyebrow"><span />مكتب المتابعة</div><h1>الصورة الشاملة</h1><p>كل أعمال الإدارة القانونية، في رؤية واحدة واضحة.</p></div><div className="heading-meta"><Badge>البيانات محدّثة</Badge><span className="muted">المتابعة تبدأ من هنا</span></div></div>
+    <div className="page-heading"><div><div className="eyebrow"><span />قسم الإدارة القانونية</div><h1>الصورة الشاملة</h1><p>كل أعمال الإدارة القانونية، في رؤية واحدة واضحة.</p></div><div className="heading-meta"><Badge>البيانات محدّثة</Badge><span className="muted">المتابعة تبدأ من هنا</span></div></div>
     <div className="kpi-grid dashboard-kpis">
       <Kpi label="المعاملات المفتوحة" value={stats.open.length} icon={<Files size={17} />} hint="جميع الأعمال الجارية" onClick={() => filterRegistry({ status: 'open' })} />
       <Kpi label="متأخرة عن المهلة" value={stats.late.length} tone="red" icon={<Clock3 size={17} />} hint="تتطلب متابعة مباشرة" onClick={() => filterRegistry({ status: 'late' })} />
